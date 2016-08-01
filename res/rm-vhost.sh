@@ -2,7 +2,7 @@
 
 HOSTNAME=$1
 if [ -z "$HOSTNAME" ]; then
-	echo "Usage: docker exec lidio601/nginx-vhost-proxy /rm-vhost.sh <domain.example.com>"
+	echo "Usage: docker exec nginx-vhost-proxy /rm-vhost.sh <domain.example.com>"
 	exit 1
 fi
 
