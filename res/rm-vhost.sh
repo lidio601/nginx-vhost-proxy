@@ -6,6 +6,14 @@ if [ -z "$HOSTNAME" ]; then
 	exit 1
 fi
 
+function sep {
+	echo -e "\n\n####################"
+}
+
+function ifexit {
+	[ "$?" -eq "0" ] || exit 1
+}
+
 echo "Removing virtual-host configuration for host $HOSTNAME"
 
 if [ -f "/etc/nginx/conf.d/$HOSTNAME.conf" ]; then

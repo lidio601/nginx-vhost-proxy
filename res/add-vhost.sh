@@ -11,12 +11,19 @@ if [ -z "$PORT" ]; then
 	PORT=80
 fi
 
+function sep {
+	echo -e "\n\n####################"
+}
+
+function ifexit {
+	[ "$?" -eq "0" ] || exit 1
+}
+
 echo "Adding virtual-host configuration for host $HOSTNAME port $PORT"
 
 echo "server { \
-	listen 80; \
-	listen [::]:80 ipv6only=on; \
-	server_name $HOSTNAME; \
+	server_name $HOSTNAME www.$HOSTNAME; \
+    access_log  /var/log/nginx/$HOSTNAME.log main; \
 	location / { \
 		proxy_pass http://$HOSTNAME:$PORT; \
 	} \

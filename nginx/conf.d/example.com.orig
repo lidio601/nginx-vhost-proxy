@@ -1,0 +1,11 @@
+server {
+    
+    server_name  example.com www.example.com;
+
+    access_log  /var/log/nginx/example.com.log  main;
+    
+    ssl_certificate /etc/nginx/ssl/example.com.crt;
+    ssl_certificate_key /etc/nginx/ssl/example.com.key;
+    
+    include snippets/ssl-params.conf;
+}
